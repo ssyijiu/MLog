@@ -9,10 +9,9 @@ import android.util.Log;
 
 /**
  * Log工具，将xUtils中LogUtils提取成一个java类，整合了KLog中打印josn数据功能
- * 
- * tag自动产生，格式: customTagPrefix:className.methodName(L:lineNumber),
- * customTagPrefix 为空时只输出：className.methodName(L:lineNumber)
- * 
+ * <br>tag自动产生，格式: customTagPrefix:className.methodName(L:lineNumber),
+ * <br>customTagPrefix 为空时只输出：className.methodName(L:lineNumber)
+ * <p>
  * Author: ssyijiu 
  * Date: 16-3-27 
  * Time: 上午9:05
@@ -63,7 +62,8 @@ public class MLog {
 			return;
 		StackTraceElement caller = getCallerStackTraceElement();
 		String tag = generateTag(caller);
-		Log.d(tag, String.valueOf(content));
+		
+		Log.d(tag, (content==null || content.toString()==null) ? "null" : content.toString());
 	}
 
 	public static void d(Object content, Throwable tr) {
@@ -71,7 +71,7 @@ public class MLog {
 			return;
 		StackTraceElement caller = getCallerStackTraceElement();
 		String tag = generateTag(caller);
-		Log.d(tag, String.valueOf(content), tr);
+		Log.d(tag, (content==null || content.toString()==null) ? "null" : content.toString(),tr);
 	}
 
 	public static void e(Object content) {
@@ -79,7 +79,7 @@ public class MLog {
 			return;
 		StackTraceElement caller = getCallerStackTraceElement();
 		String tag = generateTag(caller);
-		Log.e(tag, String.valueOf(content));
+		Log.e(tag, (content==null || content.toString()==null) ? "null" : content.toString());
 	}
 
 	public static void e(Object content, Throwable tr) {
@@ -87,7 +87,7 @@ public class MLog {
 			return;
 		StackTraceElement caller = getCallerStackTraceElement();
 		String tag = generateTag(caller);
-		Log.e(tag, String.valueOf(content), tr);
+		Log.e(tag, (content==null || content.toString()==null) ? "null" : content.toString(),tr);
 	}
 
 	public static void i(Object content) {
@@ -95,7 +95,8 @@ public class MLog {
 			return;
 		StackTraceElement caller = getCallerStackTraceElement();
 		String tag = generateTag(caller);
-		Log.i(tag, String.valueOf(content));
+		
+		Log.i(tag, (content==null || content.toString()==null) ? "null" : content.toString());
 	}
 
 	public static void i(Object content, Throwable tr) {
@@ -103,7 +104,7 @@ public class MLog {
 			return;
 		StackTraceElement caller = getCallerStackTraceElement();
 		String tag = generateTag(caller);
-		Log.i(tag, String.valueOf(content), tr);
+		Log.i(tag, (content==null || content.toString()==null) ? "null" : content.toString(),tr);
 	}
 
 	public static void v(Object content) {
@@ -111,7 +112,7 @@ public class MLog {
 			return;
 		StackTraceElement caller = getCallerStackTraceElement();
 		String tag = generateTag(caller);
-		Log.v(tag, String.valueOf(content));
+		Log.v(tag, (content==null || content.toString()==null) ? "null" : content.toString());
 	}
 
 	public static void v(Object content, Throwable tr) {
@@ -119,7 +120,7 @@ public class MLog {
 			return;
 		StackTraceElement caller = getCallerStackTraceElement();
 		String tag = generateTag(caller);
-		Log.v(tag, String.valueOf(content), tr);
+		Log.v(tag, (content==null || content.toString()==null) ? "null" : content.toString(),tr);
 	}
 
 	public static void w(Object content) {
@@ -127,7 +128,7 @@ public class MLog {
 			return;
 		StackTraceElement caller = getCallerStackTraceElement();
 		String tag = generateTag(caller);
-		Log.w(tag, String.valueOf(content));
+		Log.w(tag, (content==null || content.toString()==null) ? "null" : content.toString());
 	}
 
 	public static void w(Object content, Throwable tr) {
@@ -135,7 +136,7 @@ public class MLog {
 			return;
 		StackTraceElement caller = getCallerStackTraceElement();
 		String tag = generateTag(caller);
-		Log.w(tag, String.valueOf(content), tr);
+		Log.w(tag, (content==null || content.toString()==null) ? "null" : content.toString(),tr);
 	}
 
 	public static void w(Throwable tr) {
@@ -146,12 +147,13 @@ public class MLog {
 		Log.w(tag, tr);
 	}
 
+	// What a Terrible Failure
 	public static void wtf(Object content) {
 		if (!allowWtf)
 			return;
 		StackTraceElement caller = getCallerStackTraceElement();
 		String tag = generateTag(caller);
-		Log.wtf(tag, String.valueOf(content));
+		Log.wtf(tag, (content==null || content.toString()==null) ? "null" : content.toString());
 	}
 
 	public static void wtf(Object content, Throwable tr) {
@@ -159,7 +161,7 @@ public class MLog {
 			return;
 		StackTraceElement caller = getCallerStackTraceElement();
 		String tag = generateTag(caller);
-		Log.wtf(tag, String.valueOf(content), tr);
+		Log.wtf(tag, (content==null || content.toString()==null) ? "null" : content.toString(),tr);
 	}
 
 	public static void wtf(Throwable tr) {
