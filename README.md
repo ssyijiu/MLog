@@ -1,29 +1,43 @@
-####MLog工具简介
+#MLog
 
-1. 本工具基于xUtils中的LogUtils实现，整合了KLog中将JOSN数据格式化打印的功能
-2. 只有一个Java类，简单小巧，功能强大
-3. Tag自动产生(customTagPrefix:className.methodName(L:lineNumber))，打印方便
-4. 支持修改customTagPrefix来自定义Tag，默认""
-5. 支持打印任意Object类，null打印字符串"null"，否则打印toString，toString返回null打印字符串"null"
-
-
-
-####使用方法
-1. 将MLog.java拷贝到自己的项目中
-2. 修改package com.ssyijiu.mlog为自己的包名
-3. 修改customTagPrefix变量为自己打印Log的Tag，默认""
-
-			
-		MLog.v("ssyijiu");
-		MLog.d("ssyijiu");
-		MLog.i("ssyijiu");
-		MLog.w("ssyijiu");
-		MLog.e("ssyijiu");
-		MLog.json(json字符串);
+##项目特色
+1. Tag自动产生，格式：TAG:[className.methodName(fileName:lineNumber)]
+2. 支持修改TAG来自定义Tag，默认""
+3. 打印任意Object类，null打印字符串"null"，否则打印toString，toString返回null打印字符串"null"
+4. 可以通过设置Log级别来控制是否打印Log
+5. 只有一个Java类，简单小巧
 
 
-####联系作者
-* Email: lxmyijiu@163.com
-* V: ssyijiu11
+
+##使用方法
+```java
+MLog.setLogLev(MLog.LogLev.D);  // 设置Log级别为D，只打印 DEBUG、INFO、WARN、ERROR级别的Log
+MLog.setLogLev(MLog.LogLev.NO_LOG);  // 关闭Log打印
+MLog.TAG = "ssyijiu";  // 设置全局TAG
+MLog.v("ssyijiu");  
+MLog.e("E","ssyijiu");  // 设置本次打印的TAG
+```
+
+## 联系作者
+- Github: [ssyijiu](https://github.com/ssyijiu)
+- E-mail: lxmyijiu@163.com
+- WeChat: ssyijiu11
+
+##License
+
+```
+Copyright 2016 ssyijiu
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+   http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
 
 
