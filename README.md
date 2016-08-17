@@ -8,17 +8,17 @@
 5. 只有一个Java类，简单小巧
 
 ##使用方法
-- 直接复制MLog/library/src/main/java\com/ssyijiu/library/MLog.java 到项目中。
+- 直接复制 MLog/library/src/main/java\com/ssyijiu/library/MLog.java 到项目中。
 - Gradle
 
    root gradle
 
    ```
    allprojects {
-    repositories {
-        jcenter()
-        maven { url "https://jitpack.io" }  // 新增这一行
-    }
+      repositories {
+         jcenter()
+         maven { url "https://jitpack.io" }  // 新增这一行
+      }
    }
    ```
    app gradle
