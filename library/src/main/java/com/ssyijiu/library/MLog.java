@@ -41,9 +41,10 @@ public class MLog {
 	}
 
 	public static void v(String tag, Object obj) {
-		tmpTAG = TAG;
-		TAG = tag;
+
 		if(MLev.lev <= MLog.LogLev.V.lev) {
+			tmpTAG = TAG;
+			TAG = tag;
 			printLog(MLog.LogLev.V, getMsg(obj));
 			TAG = tmpTAG;
 		}
@@ -56,9 +57,10 @@ public class MLog {
 	}
 
 	public static void d(String tag, Object obj) {
-		tmpTAG = TAG;
-		TAG = tag;
+
 		if(MLev.lev <= MLog.LogLev.D.lev) {
+			tmpTAG = TAG;
+			TAG = tag;
 			printLog(MLog.LogLev.D, getMsg(obj));
 			TAG = tmpTAG;
 		}
@@ -71,9 +73,10 @@ public class MLog {
 	}
 
 	public static void i(String tag, Object obj) {
-		tmpTAG = TAG;
-		TAG = tag;
+
 		if(MLev.lev <= MLog.LogLev.I.lev) {
+			tmpTAG = TAG;
+			TAG = tag;
 			printLog(MLog.LogLev.I, getMsg(obj));
 			TAG = tmpTAG;
 		}
@@ -86,9 +89,10 @@ public class MLog {
 	}
 
 	public static void w(String tag, Object obj) {
-		tmpTAG = TAG;
-		TAG = tag;
+
 		if(MLev.lev <= MLog.LogLev.W.lev) {
+			tmpTAG = TAG;
+			TAG = tag;
 			printLog(MLog.LogLev.W, getMsg(obj));
 			TAG = tmpTAG;
 		}
@@ -101,9 +105,10 @@ public class MLog {
 	}
 
 	public static void e(String tag, Object obj) {
-		tmpTAG = TAG;
-		TAG = tag;
+
 		if(MLev.lev <= MLog.LogLev.E.lev) {
+			tmpTAG = TAG;
+			TAG = tag;
 			printLog(MLog.LogLev.E, getMsg(obj));
 			TAG = tmpTAG;
 		}
