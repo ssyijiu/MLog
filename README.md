@@ -10,7 +10,9 @@
 ##使用方法
 - 直接复制MLog/library/src/main/java\com/ssyijiu/library/MLog.java 到项目中。
 - Gradle
+
    root gradle
+
    ```
    allprojects {
     repositories {
