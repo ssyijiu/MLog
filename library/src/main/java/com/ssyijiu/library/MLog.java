@@ -11,27 +11,19 @@ import android.util.Log;
 public class MLog {
 
 	/** 日志的TAG */
-	public static String TAG = "MLog";
+	public static String TAG = "";
 
 	/** 临时TAG */
 	public static String tmpTAG = "";
 
 	/** 日志级别，默认为 V */
-	private static LogLev MLev = LogLev.V;
+	private static LogLev MLev;
 
 	private MLog(){
 		/* cannot be instantiated */
 		throw new UnsupportedOperationException("MLog cannot be instantiated !");
 	}
 
-	public enum LogLev {
-		V(1),D(2),I(3),W(4),E(5),NO_LOG(6);
-
-		int lev = 1;
-		LogLev(int i) {
-			lev = i;
-		}
-	}
 
 	/**
 	 * 设置日志级别，只有高于设置级别的日志才打印。
@@ -43,78 +35,78 @@ public class MLog {
 
 
 	public static void v(Object obj) {
-		if (MLev.lev > LogLev.V.lev)
-			return;
-		printLog(LogLev.V,getMsg(obj));
+		if(MLev.lev <= MLog.LogLev.V.lev) {
+			printLog(MLog.LogLev.V, getMsg(obj));
+		}
 	}
 
-	public static void v(String tag,Object obj) {
+	public static void v(String tag, Object obj) {
 		tmpTAG = TAG;
 		TAG = tag;
-		if (MLev.lev > LogLev.V.lev)
-			return;
-		printLog(LogLev.V,getMsg(obj));
-		TAG = tmpTAG;
+		if(MLev.lev <= MLog.LogLev.V.lev) {
+			printLog(MLog.LogLev.V, getMsg(obj));
+			TAG = tmpTAG;
+		}
 	}
 
 	public static void d(Object obj) {
-		if (MLev.lev > LogLev.D.lev)
-			return;
-		printLog(LogLev.D,getMsg(obj));
+		if(MLev.lev <= MLog.LogLev.D.lev) {
+			printLog(MLog.LogLev.D, getMsg(obj));
+		}
 	}
 
-	public static void d(String tag,Object obj) {
+	public static void d(String tag, Object obj) {
 		tmpTAG = TAG;
 		TAG = tag;
-		if (MLev.lev > LogLev.D.lev)
-			return;
-		printLog(LogLev.D,getMsg(obj));
-		TAG = tmpTAG;
+		if(MLev.lev <= MLog.LogLev.D.lev) {
+			printLog(MLog.LogLev.D, getMsg(obj));
+			TAG = tmpTAG;
+		}
 	}
 
 	public static void i(Object obj) {
-		if (MLev.lev > LogLev.I.lev)
-			return;
-		printLog(LogLev.I,getMsg(obj));
+		if(MLev.lev <= MLog.LogLev.I.lev) {
+			printLog(MLog.LogLev.I, getMsg(obj));
+		}
 	}
 
-	public static void i(String tag,Object obj) {
+	public static void i(String tag, Object obj) {
 		tmpTAG = TAG;
 		TAG = tag;
-		if (MLev.lev > LogLev.I.lev)
-			return;
-		printLog(LogLev.I,getMsg(obj));
-		TAG = tmpTAG;
+		if(MLev.lev <= MLog.LogLev.I.lev) {
+			printLog(MLog.LogLev.I, getMsg(obj));
+			TAG = tmpTAG;
+		}
 	}
 
 	public static void w(Object obj) {
-		if (MLev.lev > LogLev.W.lev)
-			return;
-		printLog(LogLev.W,getMsg(obj));
+		if(MLev.lev <= MLog.LogLev.W.lev) {
+			printLog(MLog.LogLev.W, getMsg(obj));
+		}
 	}
 
-	public static void w(String tag,Object obj) {
+	public static void w(String tag, Object obj) {
 		tmpTAG = TAG;
 		TAG = tag;
-		if (MLev.lev > LogLev.W.lev)
-			return;
-		printLog(LogLev.W,getMsg(obj));
-		TAG = tmpTAG;
+		if(MLev.lev <= MLog.LogLev.W.lev) {
+			printLog(MLog.LogLev.W, getMsg(obj));
+			TAG = tmpTAG;
+		}
 	}
 
 	public static void e(Object obj) {
-		if (MLev.lev > LogLev.E.lev)
-			return;
-		printLog(LogLev.E,getMsg(obj));
+		if(MLev.lev <= MLog.LogLev.E.lev) {
+			printLog(MLog.LogLev.E, getMsg(obj));
+		}
 	}
 
-	public static void e(String tag,Object obj) {
+	public static void e(String tag, Object obj) {
 		tmpTAG = TAG;
 		TAG = tag;
-		if (MLev.lev > LogLev.E.lev)
-			return;
-		printLog(LogLev.E,getMsg(obj));
-		TAG = tmpTAG;
+		if(MLev.lev <= MLog.LogLev.E.lev) {
+			printLog(MLog.LogLev.E, getMsg(obj));
+			TAG = tmpTAG;
+		}
 	}
 
 
@@ -126,16 +118,14 @@ public class MLog {
 	private static void printLog(LogLev lev, String msg) {
 
 		StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
-
-		int index = 4;
+		byte index = 4;
 		String fileName = stackTrace[index].getFileName();
-		String  className = stackTrace[index].getClassName();
+		String className = stackTrace[index].getClassName();
 		className = className.substring(className.lastIndexOf(".") + 1);
 		String methodName = stackTrace[index].getMethodName();
 		int lineNumber = stackTrace[index].getLineNumber();
-
 		String tag = "[%s.%s(%s:%d)]";
-		tag = String.format(tag,className,methodName,fileName,lineNumber);
+		tag = String.format(tag, new Object[]{className, methodName, fileName, Integer.valueOf(lineNumber)});
 		tag = TextUtils.isEmpty(TAG) ? tag : TAG + ":" + tag;
 
 		switch (lev) {
@@ -161,7 +151,26 @@ public class MLog {
 	}
 
 	public static String getMsg(Object obj) {
-		return (obj==null || obj.toString()==null) ? "null" : obj.toString();
+		return obj != null && obj.toString() != null ? obj.toString() : "null";
+	}
+
+	static {
+		MLev = MLog.LogLev.V;
+	}
+
+	public static enum LogLev {
+		V(1),
+		D(2),
+		I(3),
+		W(4),
+		E(5),
+		NO_LOG(6);
+
+		int lev = 1;
+
+		private LogLev(int i) {
+			this.lev = i;
+		}
 	}
 }
 
