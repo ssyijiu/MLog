@@ -8,6 +8,21 @@
 5. 只有一个Java类，简单小巧
 
 ##使用方法
+- 直接复制MLog/library/src/main/java\com/ssyijiu/library/MLog.java 到项目中。
+- Gradle
+   root gradle
+   ```
+   allprojects {
+    repositories {
+        jcenter()
+        maven { url "https://jitpack.io" }  // 新增这一行
+    }
+   }
+   ```
+   app gradle
+   ```
+   compile 'com.github.ssyijiu:MLog:1.0.1'
+   ```
 ```java
 MLog.setLogLev(MLog.LogLev.D);        // 设置Log级别为D，只打印 DEBUG、INFO、WARN、ERROR级别的Log
 MLog.setLogLev(MLog.LogLev.NO_LOG);   // 关闭Log打印
