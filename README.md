@@ -25,13 +25,14 @@
    ```
    compile 'com.github.ssyijiu:MLog:1.0.1'
    ```
-```java
-MLog.setLogLev(MLog.LogLev.D);        // 设置Log级别为D，只打印 DEBUG、INFO、WARN、ERROR级别的Log
-MLog.setLogLev(MLog.LogLev.NO_LOG);   // 关闭Log打印
-MLog.TAG = "ssyijiu";                 // 设置全局TAG
-MLog.v("ssyijiu");  
-MLog.e("E","ssyijiu");                // 设置本次打印的TAG
-```
+
+   ```java
+   MLog.setLogLev(MLog.LogLev.D);        // 设置Log级别为D，只打印 DEBUG、INFO、WARN、ERROR级别的Log
+   MLog.setLogLev(MLog.LogLev.NO_LOG);   // 关闭Log打印
+   MLog.TAG = "ssyijiu";                 // 设置全局TAG
+   MLog.v("ssyijiu");  
+   MLog.e("E","ssyijiu");                // 设置本次打印的TAG
+   ```
 
 ## 联系作者
 - Github: [ssyijiu](https://github.com/ssyijiu)
