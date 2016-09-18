@@ -12,9 +12,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         MLog.setLogLev(MLog.LogLev.D);
-        MLog.v("---------------");
+        MLog.v("V","---------------");
         MLog.d("---------------");
-        MLog.TAG = "ssyijiu";
+        MLog.TAG = "lxm";
         MLog.i("I","---------------");
         MLog.w("W","---------------");
         MLog.e("E","---------------");
