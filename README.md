@@ -24,14 +24,14 @@ MLog.e("E","ssyijiu");                // 设置本次打印的TAG
 allprojects {
    repositories {
       jcenter()
-      maven { url "https://jitpack.io" }  // 新增这一行
+      maven { url "https://jitpack.io" }
    }
 }
 ```
 ###app gradle
 
 ```
-compile 'com.github.ssyijiu:MLog:1.0.2'
+compile 'com.github.ssyijiu:MLog:1.0.5'
 ```
 > 当然直接复制 MLog/library/src/main/java/com/ssyijiu/library/MLog.java 到项目中也可以。
 

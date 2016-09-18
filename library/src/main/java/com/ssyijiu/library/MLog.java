@@ -36,81 +36,66 @@ public class MLog {
 
 	public static void v(Object obj) {
 		if(MLev.lev <= MLog.LogLev.V.lev) {
-			printLog(MLog.LogLev.V, getMsg(obj));
+			printLog(TAG, MLog.LogLev.V, getMsg(obj));
 		}
 	}
 
 	public static void v(String tag, Object obj) {
 
 		if(MLev.lev <= MLog.LogLev.V.lev) {
-			tmpTAG = TAG;
-			TAG = tag;
-			printLog(MLog.LogLev.V, getMsg(obj));
-			TAG = tmpTAG;
+			printLog(tag, MLog.LogLev.V, getMsg(obj));
 		}
 	}
 
 	public static void d(Object obj) {
 		if(MLev.lev <= MLog.LogLev.D.lev) {
-			printLog(MLog.LogLev.D, getMsg(obj));
+			printLog(TAG, MLog.LogLev.D, getMsg(obj));
 		}
 	}
 
 	public static void d(String tag, Object obj) {
 
 		if(MLev.lev <= MLog.LogLev.D.lev) {
-			tmpTAG = TAG;
-			TAG = tag;
-			printLog(MLog.LogLev.D, getMsg(obj));
-			TAG = tmpTAG;
+			printLog(tag, MLog.LogLev.D, getMsg(obj));
 		}
 	}
 
 	public static void i(Object obj) {
 		if(MLev.lev <= MLog.LogLev.I.lev) {
-			printLog(MLog.LogLev.I, getMsg(obj));
+			printLog(TAG, MLog.LogLev.I, getMsg(obj));
 		}
 	}
 
 	public static void i(String tag, Object obj) {
 
 		if(MLev.lev <= MLog.LogLev.I.lev) {
-			tmpTAG = TAG;
-			TAG = tag;
-			printLog(MLog.LogLev.I, getMsg(obj));
-			TAG = tmpTAG;
+			printLog(tag, MLog.LogLev.I, getMsg(obj));
 		}
 	}
 
 	public static void w(Object obj) {
 		if(MLev.lev <= MLog.LogLev.W.lev) {
-			printLog(MLog.LogLev.W, getMsg(obj));
+			printLog(TAG, MLog.LogLev.W, getMsg(obj));
 		}
 	}
 
 	public static void w(String tag, Object obj) {
 
 		if(MLev.lev <= MLog.LogLev.W.lev) {
-			tmpTAG = TAG;
-			TAG = tag;
-			printLog(MLog.LogLev.W, getMsg(obj));
-			TAG = tmpTAG;
+			printLog(tag, MLog.LogLev.W, getMsg(obj));
 		}
 	}
 
 	public static void e(Object obj) {
 		if(MLev.lev <= MLog.LogLev.E.lev) {
-			printLog(MLog.LogLev.E, getMsg(obj));
+			printLog(TAG,MLog.LogLev.E, getMsg(obj));
 		}
 	}
 
 	public static void e(String tag, Object obj) {
 
 		if(MLev.lev <= MLog.LogLev.E.lev) {
-			tmpTAG = TAG;
-			TAG = tag;
-			printLog(MLog.LogLev.E, getMsg(obj));
-			TAG = tmpTAG;
+			printLog(tag, MLog.LogLev.E, getMsg(obj));
 		}
 	}
 
@@ -120,7 +105,11 @@ public class MLog {
 	 * @param lev 级别
 	 * @param msg Message
      */
-	private static void printLog(LogLev lev, String msg) {
+	private static void printLog(String defaultTag, LogLev lev, String msg) {
+
+		// 记录下全局 TAG
+		tmpTAG = TAG;
+		TAG = defaultTag;
 
 		StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
 		byte index = 4;
@@ -153,6 +142,9 @@ public class MLog {
 				break;
 
 		}
+
+		// 恢复全局 TAG
+		TAG = tmpTAG;
 	}
 
 	public static String getMsg(Object obj) {
@@ -162,6 +154,7 @@ public class MLog {
 	static {
 		MLev = MLog.LogLev.V;
 	}
+
 
 	public static enum LogLev {
 		V(1),
