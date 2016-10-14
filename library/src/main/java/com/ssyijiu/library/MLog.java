@@ -147,7 +147,7 @@ public class MLog {
 		TAG = tmpTAG;
 	}
 
-	public static String getMsg(Object obj) {
+	private static String getMsg(Object obj) {
 		return obj != null && obj.toString() != null ? obj.toString() : "null";
 	}
 
@@ -156,7 +156,7 @@ public class MLog {
 	}
 
 
-	public static enum LogLev {
+	private static enum LogLev {
 		V(1),
 		D(2),
 		I(3),
