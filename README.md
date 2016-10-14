@@ -31,7 +31,7 @@ allprojects {
 ###app gradle
 
 ```
-compile 'com.github.ssyijiu:MLog:1.0.7'
+compile 'com.github.ssyijiu:MLog:1.0.8'
 ```
 > 当然直接复制 MLog/library/src/main/java/com/ssyijiu/library/MLog.java 到项目中也可以。
 
