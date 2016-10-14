@@ -77,7 +77,7 @@ public class MLog {
 		if(MLev.lev <= MLog.LogLev.W.lev) {
 			printLog(TAG, MLog.LogLev.W, getMsg(obj));
 		}
-	}
+	} 
 
 	public static void w(String tag, Object obj) {
 
