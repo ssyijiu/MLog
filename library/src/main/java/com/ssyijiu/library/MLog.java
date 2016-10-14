@@ -14,7 +14,7 @@ public class MLog {
 	public static String TAG = "";
 
 	/** 临时TAG */
-	public static String tmpTAG = "";
+	private static String tmpTAG = "";
 
 	/** 日志级别，默认为 V */
 	private static LogLev MLev;
