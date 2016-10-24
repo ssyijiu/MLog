@@ -156,7 +156,7 @@ public class MLog {
 	}
 
 
-	private static enum LogLev {
+	public  static enum LogLev {
 		V(1),
 		D(2),
 		I(3),
