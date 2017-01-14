@@ -20,6 +20,5 @@ public class MainActivity extends AppCompatActivity {
         MLog.w("W","---------------");
         MLog.e("E","---------------");
         MLog.e("ssyijiu");
-
     }
 }

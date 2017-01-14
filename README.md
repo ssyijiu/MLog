@@ -18,9 +18,9 @@ MLog.e("E","ssyijiu");                // 设置本次打印的TAG
 ```
 ## 效果图
 
-![](http://obe5pxv6t.bkt.clouddn.com/MLog_1.png)
+![](http://obe5pxv6t.bkt.clouddn.com/MLog-1.png)
 
-![](http://obe5pxv6t.bkt.clouddn.com/MLog_2.png)
+![](http://obe5pxv6t.bkt.clouddn.com/MLog-2.png)
 
 ##Gradle
 

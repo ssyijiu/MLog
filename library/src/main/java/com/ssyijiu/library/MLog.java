@@ -108,8 +108,8 @@ public class MLog {
 		String tmpTAG = TAG;
 		TAG = defaultTag;
 
-		StackTraceElement[] stackTrace = new Throwable().getStackTrace();
-		byte index = 8;
+		StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
+		byte index = 4;
 		String fileName = stackTrace[index].getFileName();
 		String className = stackTrace[index].getClassName();
 		className = className.substring(className.lastIndexOf(".") + 1);
