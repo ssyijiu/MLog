@@ -16,6 +16,12 @@ MLog.TAG = "ssyijiu";                 // 设置全局TAG
 MLog.v("ssyijiu");  
 MLog.e("E","ssyijiu");                // 设置本次打印的TAG
 ```
+## 效果图
+
+![](http://obe5pxv6t.bkt.clouddn.com/MLog_1.png)
+
+![](http://obe5pxv6t.bkt.clouddn.com/MLog_2.png)
+
 ##Gradle
 
 ###root gradle
@@ -31,7 +37,7 @@ allprojects {
 ###app gradle
 
 ```
-compile 'com.github.ssyijiu:MLog:1.0.9'
+compile 'com.github.ssyijiu:MLog:1.1.0'
 ```
 > 当然直接复制 MLog/library/src/main/java/com/ssyijiu/library/MLog.java 到项目中也可以。
 
@@ -56,3 +62,5 @@ distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
+
+```

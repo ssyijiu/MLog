@@ -13,9 +13,6 @@ public class MLog {
 	/** 日志的TAG */
 	public static String TAG = "";
 
-	/** 临时TAG */
-	private static String tmpTAG = "";
-
 	/** 日志级别，默认为 V */
 	private static LogLev MLev;
 
@@ -27,7 +24,7 @@ public class MLog {
 
 	/**
 	 * 设置日志级别，只有高于设置级别的日志才打印。
-	 * @param lev
+	 * @param lev {@link LogLev#V,LogLev#D,LogLev#I,LogLev#W,LogLev#E,LogLev#NO_LOG}
      */
 	public static void setLogLev(LogLev lev) {
 		MLev = lev;
@@ -108,18 +105,18 @@ public class MLog {
 	private static void printLog(String defaultTag, LogLev lev, String msg) {
 
 		// 记录下全局 TAG
-		tmpTAG = TAG;
+		String tmpTAG = TAG;
 		TAG = defaultTag;
 
-		StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
-		byte index = 4;
+		StackTraceElement[] stackTrace = new Throwable().getStackTrace();
+		byte index = 8;
 		String fileName = stackTrace[index].getFileName();
 		String className = stackTrace[index].getClassName();
 		className = className.substring(className.lastIndexOf(".") + 1);
 		String methodName = stackTrace[index].getMethodName();
 		int lineNumber = stackTrace[index].getLineNumber();
 		String tag = "[%s.%s(%s:%d)]";
-		tag = String.format(tag, new Object[]{className, methodName, fileName, Integer.valueOf(lineNumber)});
+		tag = String.format(tag, className, methodName, fileName, lineNumber);
 		tag = TextUtils.isEmpty(TAG) ? tag : TAG + ":" + tag;
 
 		switch (lev) {
@@ -152,11 +149,11 @@ public class MLog {
 	}
 
 	static {
-		MLev = MLog.LogLev.V;
+		MLev = LogLev.V;
 	}
 
 
-	public  static enum LogLev {
+	public enum LogLev {
 		V(1),
 		D(2),
 		I(3),
@@ -166,7 +163,7 @@ public class MLog {
 
 		int lev = 1;
 
-		private LogLev(int i) {
+		LogLev(int i) {
 			this.lev = i;
 		}
 	}
