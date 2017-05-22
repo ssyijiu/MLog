@@ -22,9 +22,9 @@ MLog.e("E","ssyijiu");                // 设置本次打印的TAG
 
 ![](http://obe5pxv6t.bkt.clouddn.com/MLog-2.png)
 
-##Gradle
+## Gradle
 
-###root gradle
+### root gradle
 
 ```
 allprojects {
