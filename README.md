@@ -1,4 +1,4 @@
-#MLog
+# MLog
 一个简洁的Log工具。
 ##项目特色
 1. Tag自动产生，格式：TAG:[className.methodName(fileName:lineNumber)]
@@ -7,7 +7,7 @@
 4. 可以通过设置Log级别来控制是否打印Log
 5. 只有一个Java类，简单小巧
 
-##使用方法
+## 使用方法
 
 ```java
 MLog.setLogLev(MLog.LogLev.D);        // 设置Log级别为D，只打印 DEBUG、INFO、WARN、ERROR级别的Log
@@ -34,7 +34,7 @@ allprojects {
    }
 }
 ```
-###app gradle
+### app gradle
 
 ```
 compile 'com.github.ssyijiu:MLog:1.1.0'
@@ -46,7 +46,7 @@ compile 'com.github.ssyijiu:MLog:1.1.0'
 - E-mail : lxmyijiu@163.com
 - WeChat : [ssyijiu11](http://obe5pxv6t.bkt.clouddn.com/weixin.jpg)
 
-##License
+## License
 
 ```
 Copyright 2016 ssyijiu
